@@ -1,209 +1,177 @@
-import Head from 'next/head'
-
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+import PersistentDrawerLeft from "../components/PersistentDrawerLeft";
+import titlelogo from "../public/titlelogo.jpg";
+import ColorTabs from "../components/ColorTabs";
+import EnhancedTable from "../components/EnhancedTableHead";
+import test from "../public/test.jpg";
+import Image from "next/image";
+const AppList = ["查看存庫", "添加品相"];
+const MenuCat = [
+  { value: "0", name: "庫存明細" },
+  { value: "1", name: "點貨記錄" },
+];
+const ItemOneCat = [
+  {
+    id: "ID",
+    numeric: false,
+    disablePadding: true,
+    label: "代號",
+  },
+  {
+    id: "photos",
+    numeric: true,
+    disablePadding: false,
+    label: "照片",
+  },
+  {
+    id: "name",
+    numeric: true,
+    disablePadding: false,
+    label: "名字",
+  },
+  {
+    id: "quantities",
+    numeric: true,
+    disablePadding: false,
+    label: "數量",
+  },
+  {
+    id: "expiry-date",
+    numeric: true,
+    disablePadding: false,
+    label: "儲存期限",
+  },
+  {
+    id: "savings",
+    numeric: true,
+    disablePadding: false,
+    label: "庫存",
+  },
+  {
+    id: "categories",
+    numeric: true,
+    disablePadding: false,
+    label: "類別",
+  },
+];
+const ItemTwoCat = [
+  {
+    id: "rooms",
+    numeric: false,
+    disablePadding: true,
+    label: "廠庫",
+  },
+  {
+    id: "name",
+    numeric: true,
+    disablePadding: false,
+    label: "名字",
+  },
+  {
+    id: "nowquantities",
+    numeric: true,
+    disablePadding: false,
+    label: "現有數量",
+  },
+  {
+    id: "actualquantities",
+    numeric: true,
+    disablePadding: false,
+    label: "實際點貨數量",
+  },
+  {
+    id: "means",
+    numeric: true,
+    disablePadding: false,
+    label: "差異",
+  },
+  {
+    id: "orderdates",
+    numeric: true,
+    disablePadding: false,
+    label: "點貨日期",
+  },
+  {
+    id: "ordertimes",
+    numeric: true,
+    disablePadding: false,
+    label: "點貨時間",
+  },
+  {
+    id: "orderers",
+    numeric: true,
+    disablePadding: false,
+    label: "點貨人",
+  },
+];
+function createData(one, two, three, four, five, six, seven, eight) {
+  return {
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+  };
 }
+const rowsData1 = [
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+  createData("A01", test, "包菜", 16, "2022 - 09 - 13", "A01", "農作物"),
+];
+
+const rowsData2 = [
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+  createData("A01", "包菜", 10, 16, 0, "2022/06/07", 1600, "Vincent"),
+];
+// after choosing applist trigger parameter change AppMain show state
+const AppMain = (
+  <>
+    <ColorTabs
+      MenuCat={MenuCat}
+      ItemOne={<EnhancedTable ItemCat={ItemOneCat} rows={rowsData1} />}
+      ItemTwo={
+        <EnhancedTable ItemCat={ItemTwoCat} rows={rowsData2} buttonEnable />
+      }
+    />
+  </>
+);
+function HomePage() {
+  return (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <PersistentDrawerLeft
+        titlelogo={titlelogo}
+        AppList={AppList}
+        AppMain={AppMain}
+      />
+    </div>
+  );
+}
+
+export default HomePage;
