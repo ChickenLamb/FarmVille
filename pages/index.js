@@ -4,7 +4,10 @@ import ColorTabs from "../components/ColorTabs";
 import EnhancedTable from "../components/EnhancedTableHead";
 import test from "../public/test.jpg";
 import Image from "next/image";
-const AppList = ["查看存庫", "添加品相"];
+const AppList = [
+  { name: "查看存庫", link: "/" },
+  { name: "添加品相", link: "/Add" },
+];
 const MenuCat = [
   { value: "0", name: "庫存明細" },
   { value: "1", name: "點貨記錄" },

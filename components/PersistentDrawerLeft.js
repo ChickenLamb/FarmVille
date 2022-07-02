@@ -19,6 +19,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Image from "next/image";
+import Link from "next/link";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -133,14 +134,18 @@ export default function PersistentDrawerLeft(props) {
         </DrawerHeader>
         <Divider />
         <List>
-          {props.AppList.map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemText
-                  primary={<Box sx={{ fontWeight: "bold", m: 1 }}>{text}</Box>}
-                />
-              </ListItemButton>
-            </ListItem>
+          {props.AppList.map((item, index) => (
+            <Link href={item.link}>
+              <ListItem key={item.name} disablePadding>
+                <ListItemButton>
+                  <ListItemText
+                    primary={
+                      <Box sx={{ fontWeight: "bold", m: 1 }}>{item.name}</Box>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />
