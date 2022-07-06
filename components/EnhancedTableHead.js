@@ -271,8 +271,8 @@ export default function EnhancedTable(props) {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.rows.length) : 0;
 
   return (
-    <Box sx={{ width: "75vw" }}>
-      <Paper sx={{ width: "75vw", mb: 2, overflow: "hidden" }}>
+    <Box sx={{ width: "100%" }}>
+      <Paper sx={{ width: "100%", mb: 2, overflow: "hidden" }}>
         {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer sx={{ maxHeight: 540 }}>
           <Table
