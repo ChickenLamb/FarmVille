@@ -272,7 +272,7 @@ export default function EnhancedTable(props) {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", mb: 2, overflow: "hidden" }}>
+      <Paper sx={{ width: "75vw", mb: 2, overflow: "hidden" }}>
         {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer sx={{ maxHeight: 540 }}>
           <Table
